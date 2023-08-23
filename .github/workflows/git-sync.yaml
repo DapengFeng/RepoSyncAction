@@ -25,6 +25,15 @@ jobs:
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: gaussian-splatting
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:graphdeco-inria/gaussian-splatting.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/gaussian-splatting.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: gaussian-splatting-cuda
         uses: wei/git-sync@v3
         with:
@@ -34,3 +43,11 @@ jobs:
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: tiny-cuda-nn
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:NVlabs/tiny-cuda-nn.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/tiny-cuda-nn.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
