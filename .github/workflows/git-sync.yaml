@@ -51,3 +51,12 @@ jobs:
           destination_repo: "git@github.com:${{ secrets.USER }}/tiny-cuda-nn.git"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: sibr-core
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.inria.fr/sibr/sibr_core.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/SIBR-Core.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
