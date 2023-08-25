@@ -78,3 +78,12 @@ jobs:
           destination_repo: "git@github.com:${{ secrets.USER }}/oneTBB.git"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: TensorRT
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:NVIDIA/TensorRT.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/TensorRT.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
