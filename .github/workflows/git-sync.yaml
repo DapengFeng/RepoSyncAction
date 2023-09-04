@@ -96,3 +96,21 @@ jobs:
           destination_repo: "git@github.com:${{ secrets.USER }}/colmap.git"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: opencv
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:opencv/opencv.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/opencv.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: opencv_contrib
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:opencv/opencv_contrib.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/opencv_contrib.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
