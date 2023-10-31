@@ -7,6 +7,24 @@ jobs:
   git-sync:
     runs-on: ubuntu-latest
     steps:
+      - name: folly
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:facebookincubator/velox.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/velox.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
+      - name: folly
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:facebook/folly.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/folly.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
       - name: stb
         uses: wei/git-sync@v3
         with:
