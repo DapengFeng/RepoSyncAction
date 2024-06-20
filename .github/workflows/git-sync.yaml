@@ -7,6 +7,15 @@ jobs:
   git-sync:
     runs-on: ubuntu-latest
     steps:
+      - name: mfs-chol
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.inria.fr/geomerix/public/mfs-chol.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/mfs-chol.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
       - name: srl_projection
         uses: wei/git-sync@v3
         with:
@@ -106,15 +115,6 @@ jobs:
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: pytorch
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:pytorch/pytorch.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/pytorch.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
       - name: gaussian-splatting
         uses: wei/git-sync@v3
         with:
@@ -211,5 +211,14 @@ jobs:
           source_repo: "git@github.com:graphdeco-inria/diff-gaussian-rasterization.git"
           source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/diff-gaussian-rasterization.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: pytorch
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@github.com:pytorch/pytorch.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/pytorch.git"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
