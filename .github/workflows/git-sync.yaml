@@ -6,7 +6,16 @@ on:
 jobs:
   git-sync:
     runs-on: ubuntu-latest
-    steps:          
+    steps:
+      - name: FastFlow
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.inria.fr/landscapes/fastflow.git"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "git@github.com:${{ secrets.USER }}/FastFlow.git"
+          destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
       - name: srl_projection
         uses: wei/git-sync@v3
         with:
