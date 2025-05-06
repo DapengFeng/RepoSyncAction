@@ -6,76 +6,13 @@ on:
 jobs:
   git-sync:
     runs-on: ubuntu-latest
-    steps:
-      - name: rerun-io
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:rerun-io/rerun.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/rerun.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
+    steps:          
       - name: FastFlow
         uses: wei/git-sync@v3
         with:
           source_repo: "https://gitlab.inria.fr/landscapes/fastflow.git"
           source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/FastFlow.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-      
-      - name: srl_projection
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "https://bitbucket.org/smartroboticslab/srl_projection.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/srl_projection.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: ADOP
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:darglein/ADOP.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/ADOP.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        
-      - name: velox
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:facebookincubator/velox.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/velox.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: folly
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:facebook/folly.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/folly.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: stb
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:nothings/stb.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/stb.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: glm
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:g-truc/glm.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/glm.git"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
   
@@ -88,138 +25,12 @@ jobs:
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: json
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:nlohmann/json.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/json.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: yaml-cpp
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:jbeder/yaml-cpp.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/yaml-cpp.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-    
-      - name: argparse
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:p-ranav/argparse.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/argparse.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          
-      - name: tinyply
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:ddiakopoulos/tinyply.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/tinyply.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: gaussian-splatting
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:graphdeco-inria/gaussian-splatting.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/gaussian-splatting.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: gaussian-splatting-cuda
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:MrNeRF/gaussian-splatting-cuda.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/gaussian-splatting-cuda.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: tiny-cuda-nn
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:NVlabs/tiny-cuda-nn.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/tiny-cuda-nn.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
       - name: sibr-core
         uses: wei/git-sync@v3
         with:
           source_repo: "https://gitlab.inria.fr/sibr/sibr_core.git"
           source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/SIBR-Core.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: oneMKL
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:oneapi-src/oneMKL.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/oneMKL.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: oneTBB
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:oneapi-src/oneMKL.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/oneTBB.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: TensorRT
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:NVIDIA/TensorRT.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/TensorRT.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: colmap
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:colmap/colmap.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/colmap.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: opencv
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:opencv/opencv.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/opencv.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: opencv_contrib
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:opencv/opencv_contrib.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/opencv_contrib.git"
-          destination_branch: "refs/heads/*"
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: diff-gaussian-rasterization
-        uses: wei/git-sync@v3
-        with:
-          source_repo: "git@github.com:graphdeco-inria/diff-gaussian-rasterization.git"
-          source_branch: "refs/remotes/source/*"
-          destination_repo: "git@github.com:${{ secrets.USER }}/diff-gaussian-rasterization.git"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
