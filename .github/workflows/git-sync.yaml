@@ -13,7 +13,7 @@ jobs:
           persist-credentials: false
           
       - name: FastFlow
-        uses: repo-sync/github-sync@v2
+        uses: wei/git-sync@v3
         with:
           source_repo: "https://gitlab.inria.fr/landscapes/fastflow.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/FastFlow.git"
@@ -21,10 +21,9 @@ jobs:
           destination_branch: "*"
           sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          github_token: ${{ secrets.PAT }}
   
       - name: eigen
-        uses: repo-sync/github-sync@v2
+        uses: wei/git-sync@v3
         with:
           source_repo: "https://gitlab.com/libeigen/eigen.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/eigen.git"
@@ -32,10 +31,9 @@ jobs:
           destination_branch: "*"
           sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          github_token: ${{ secrets.PAT }}
 
       - name: sibr-core
-        uses: repo-sync/github-sync@v2
+        uses: wei/git-sync@v3
         with:
           source_repo: "https://gitlab.inria.fr/sibr/sibr_core.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/SIBR-Core.git"
@@ -43,10 +41,9 @@ jobs:
           destination_branch: "*"
           sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          github_token: ${{ secrets.PAT }}
 
       - name: mfs-chol
-        uses: repo-sync/github-sync@v2
+        uses: wei/git-sync@v3
         with:
           source_repo: "https://gitlab.inria.fr/geomerix/public/mfs-chol.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/mfs-chol.git"
@@ -54,4 +51,3 @@ jobs:
           destination_branch: "*"
           sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          github_token: ${{ secrets.PAT }}
