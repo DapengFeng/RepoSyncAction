@@ -2,43 +2,56 @@ on:
   push:
   schedule:
   - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   git-sync:
     runs-on: ubuntu-latest
-    steps:          
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          
       - name: FastFlow
-        uses: wei/git-sync@v3
+        uses: repo-sync/github-sync@v2
         with:
           source_repo: "https://gitlab.inria.fr/landscapes/fastflow.git"
-          source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/FastFlow.git"
-          destination_branch: "refs/heads/*"
+          source_branch: "*"
+          destination_branch: "*"
+          sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.PAT }}
   
       - name: eigen
-        uses: wei/git-sync@v3
+        uses: repo-sync/github-sync@v2
         with:
           source_repo: "https://gitlab.com/libeigen/eigen.git"
-          source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/eigen.git"
-          destination_branch: "refs/heads/*"
+          source_branch: "*"
+          destination_branch: "*"
+          sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.PAT }}
 
       - name: sibr-core
-        uses: wei/git-sync@v3
+        uses: repo-sync/github-sync@v2
         with:
           source_repo: "https://gitlab.inria.fr/sibr/sibr_core.git"
-          source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/SIBR-Core.git"
-          destination_branch: "refs/heads/*"
+          source_branch: "*"
+          destination_branch: "*"
+          sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.PAT }}
 
       - name: mfs-chol
-        uses: wei/git-sync@v3
+        uses: repo-sync/github-sync@v2
         with:
           source_repo: "https://gitlab.inria.fr/geomerix/public/mfs-chol.git"
-          source_branch: "refs/remotes/source/*"
           destination_repo: "git@github.com:${{ secrets.USER }}/mfs-chol.git"
-          destination_branch: "refs/heads/*"
+          source_branch: "*"
+          destination_branch: "*"
+          sync_tags: "true"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.PAT }}
