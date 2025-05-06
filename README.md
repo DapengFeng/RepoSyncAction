@@ -1,13 +1,13 @@
-# Third Party
+# RepoSyncAction
 
-A GitHub Action for syncing ThirdParty's repositories using **force push**.
+A GitHub Action for syncing repositories using **force push**.
+
 
 ## Features
 
 - Sync branches between two GitHub repositories
 - Sync branches to/from a remote repository
 - GitHub action can be triggered on a timer or on push
-- To sync with current repository, please checkout [Github Repo Sync](https://github.com/marketplace/actions/github-repo-sync)
 
 ## Usage
 

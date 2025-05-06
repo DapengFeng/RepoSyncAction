@@ -20,6 +20,15 @@ jobs:
           source_branch: "refs/remotes/source/*"
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: FastFlow
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.inria.fr/landscapes/fastflow.git"
+          destination_repo: "git@github.com:${{ secrets.USER }}/FastFlow.git"
+          source_branch: "refs/tags/*"
+          destination_branch: "refs/tags/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
   
       - name: eigen
         uses: wei/git-sync@v3
@@ -28,6 +37,15 @@ jobs:
           destination_repo: "git@github.com:${{ secrets.USER }}/eigen.git"
           source_branch: "refs/remotes/source/*"
           destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: eigen
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.com/libeigen/eigen.git"
+          destination_repo: "git@github.com:${{ secrets.USER }}/eigen.git"
+          source_branch: "refs/tags/*"
+          destination_branch: "refs/tags/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: sibr-core
@@ -39,6 +57,15 @@ jobs:
           destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: sibr-core
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.inria.fr/sibr/sibr_core.git"
+          destination_repo: "git@github.com:${{ secrets.USER }}/SIBR-Core.git"
+          source_branch: "refs/tags/*"
+          destination_branch: "refs/tags/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: mfs-chol
         uses: wei/git-sync@v3
         with:
@@ -46,4 +73,13 @@ jobs:
           destination_repo: "git@github.com:${{ secrets.USER }}/mfs-chol.git"
           source_branch: "refs/remotes/source/*"
           destination_branch: "refs/heads/*"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: mfs-chol
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "https://gitlab.inria.fr/geomerix/public/mfs-chol.git"
+          destination_repo: "git@github.com:${{ secrets.USER }}/mfs-chol.git"
+          source_branch: "refs/tags/*"
+          destination_branch: "refs/tags/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
