@@ -17,9 +17,8 @@ jobs:
         with:
           source_repo: "https://gitlab.inria.fr/landscapes/fastflow.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/FastFlow.git"
-          source_branch: "*"
-          destination_branch: "*"
-          sync_tags: "true"
+          source_branch: "refs/remotes/source/*"
+          destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
   
       - name: eigen
@@ -27,9 +26,8 @@ jobs:
         with:
           source_repo: "https://gitlab.com/libeigen/eigen.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/eigen.git"
-          source_branch: "*"
-          destination_branch: "*"
-          sync_tags: "true"
+          source_branch: "refs/remotes/source/*"
+          destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: sibr-core
@@ -37,9 +35,8 @@ jobs:
         with:
           source_repo: "https://gitlab.inria.fr/sibr/sibr_core.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/SIBR-Core.git"
-          source_branch: "*"
-          destination_branch: "*"
-          sync_tags: "true"
+          source_branch: "refs/remotes/source/*"
+          destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: mfs-chol
@@ -47,7 +44,6 @@ jobs:
         with:
           source_repo: "https://gitlab.inria.fr/geomerix/public/mfs-chol.git"
           destination_repo: "git@github.com:${{ secrets.USER }}/mfs-chol.git"
-          source_branch: "*"
-          destination_branch: "*"
-          sync_tags: "true"
+          source_branch: "refs/remotes/source/*"
+          destination_branch: "refs/heads/*"
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
